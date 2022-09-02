@@ -1,0 +1,107 @@
+{
+  "name": "@julr/unocss-preset-forms",
+  "version": "0.0.1-beta.0",
+  "packageManager": "pnpm@7.9.5",
+  "description": "📋 Port of @tailwindcss/forms for UnoCSS.",
+  "author": "Julien Ripouteau <julien@ripouteau.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/Julien-R44",
+  "homepage": "https://github.com/Julien-R44/unocss-preset-forms#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Julien-R44/unocss-preset-forms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Julien-R44/unocss-preset-forms/issues"
+  },
+  "keywords": [
+    "unocss",
+    "@tailwind/forms",
+    "tailwind forms",
+    "preset uno"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "build": "rimraf dist && unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint . --ext=.ts",
+    "format": "prettier --write .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp --commit --push --tag && pnpm publish",
+    "start": "node --loader=ts-node/esm src/index.ts",
+    "test": "echo OK",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "unocss": ">= 0.31.13 < 1"
+  },
+  "devDependencies": {
+    "@antfu/ni": "^0.18.0",
+    "@japa/assert": "^1.3.4",
+    "@japa/runner": "^2.0.9",
+    "@japa/spec-reporter": "^1.1.12",
+    "@julr/eslint-config": "^0.3.2",
+    "@types/node": "^18.7.14",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.23.0",
+    "mini-svg-data-uri": "^1.4.4",
+    "pnpm": "^7.9.5",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.2",
+    "unbuild": "^0.8.10",
+    "unocss": "^0.45.14"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "openapi-types",
+        "@babel/core",
+        "vite"
+      ]
+    }
+  },
+  "eslintConfig": {
+    "extends": "@julr",
+    "rules": {
+      "n/no-unsupported-features/es-syntax": "off"
+    }
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true,
+    "useTabs": false,
+    "quoteProps": "consistent",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "printWidth": 100
+  }
+}
