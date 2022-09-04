@@ -1,6 +1,6 @@
-# unocss-preset-forms
-
-📋 Port of @tailwindcss/forms for UnoCSS.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/8337858/188330269-7ddfeb8f-54a6-4594-b546-e85a69927e00.png">
+</p>
 
 ## Installation
 
