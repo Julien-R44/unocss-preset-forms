@@ -18,6 +18,9 @@ specifiers:
   unbuild: ^0.8.10
   unocss: ^0.45.14
 
+dependencies:
+  mini-svg-data-uri: 1.4.4
+
 devDependencies:
   '@antfu/ni': 0.18.0
   '@japa/assert': 1.3.4
@@ -27,7 +30,6 @@ devDependencies:
   '@types/node': 18.7.14
   bumpp: 8.2.1
   eslint: 8.23.0
-  mini-svg-data-uri: 1.4.4
   pnpm: 7.9.5
   prettier: 2.7.1
   rimraf: 3.0.2
@@ -144,6 +146,9 @@ packages:
     peerDependencies:
       '@babel/core': '>=7.11.0'
       eslint: ^7.5.0 || ^8.0.0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
     dependencies:
       eslint: 8.23.0
       eslint-scope: 5.1.1
@@ -177,6 +182,9 @@ packages:
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
     dependencies:
       '@babel/compat-data': 7.18.13
       '@babel/core': 7.18.13
@@ -1228,6 +1236,9 @@ packages:
     resolution: {integrity: sha512-WEYYGYDi9Sa/GMJn1rQxXskcsNe7dlrOPYqNot7X7ZKy6t59hdIcxFhGQn7d4+i3+9Fj65iaWe7qGfLXLk9eWg==}
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0
+    peerDependenciesMeta:
+      vite:
+        optional: true
     dependencies:
       '@ampproject/remapping': 2.2.0
       '@rollup/pluginutils': 4.2.1
@@ -4014,7 +4025,7 @@ packages:
   /mini-svg-data-uri/1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
-    dev: true
+    dev: false
 
   /minimatch/3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
