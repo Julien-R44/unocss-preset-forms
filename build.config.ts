@@ -7,5 +7,5 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
   },
-  externals: ['unocss', 'mini-svg-data-uri'],
+  externals: ['unocss', 'mini-svg-data-uri', '@unocss/preset-mini', '@unocss/preset-mini/utils'],
 })
