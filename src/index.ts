@@ -48,7 +48,7 @@ export function presetForms(): Preset {
                 'padding-bottom': spacing(2),
                 'padding-left': spacing(3),
                 'font-size': theme.fontSize.base[0],
-                'line-height': theme.fontSize.base[0],
+                'line-height': `${theme.lineHeight.normal}rem`,
                 '--un-shadow': '0 0 #0000',
               },
             },
