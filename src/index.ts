@@ -1,4 +1,5 @@
 import svgToDataUri from 'mini-svg-data-uri'
+import { handler as h } from '@unocss/preset-mini/utils'
 import type { Preset } from 'unocss'
 
 /**
@@ -11,7 +12,7 @@ export function presetForms(): Preset {
     preflights: [
       {
         getCSS: ({ theme }: { theme: any }) => {
-          const spacing: any = Object.values(theme.spacing)
+          const spacing = (s: number) => h.fraction.rem(`${s}` || '1')
           const borderWidth = { DEFAULT: '1px' }
 
           const inputsClasses = [
@@ -42,10 +43,10 @@ export function presetForms(): Preset {
                 'border-color': theme.colors.gray['500'],
                 'border-width': borderWidth.DEFAULT,
                 'border-radius': theme.borderRadius.none,
-                'padding-top': spacing[2],
-                'padding-right': spacing[3],
-                'padding-bottom': spacing[2],
-                'padding-left': spacing[3],
+                'padding-top': spacing(2),
+                'padding-right': spacing(3),
+                'padding-bottom': spacing(2),
+                'padding-left': spacing(3),
                 'font-size': theme.fontSize.base[0],
                 'line-height': theme.fontSize.base[0],
                 '--un-shadow': '0 0 #0000',
@@ -132,10 +133,10 @@ export function presetForms(): Preset {
                 'background-image': `url("${svgToDataUri(
                   `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="${theme.colors.gray['500']}" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 8l4 4 4-4"/></svg>`
                 )}")`,
-                'background-position': `right ${spacing[2]} center`,
+                'background-position': `right ${spacing(2)} center`,
                 'background-repeat': `no-repeat`,
                 'background-size': `1.5em 1.5em`,
-                'padding-right': spacing[10],
+                'padding-right': spacing(10),
                 'print-color-adjust': `exact`,
               },
             },
@@ -147,7 +148,7 @@ export function presetForms(): Preset {
                 'background-position': 'initial',
                 'background-repeat': 'unset',
                 'background-size': 'initial',
-                'padding-right': spacing[3],
+                'padding-right': spacing(3),
                 'print-color-adjust': 'unset',
               },
             },
@@ -163,8 +164,8 @@ export function presetForms(): Preset {
                 'background-origin': 'border-box',
                 'user-select': 'none',
                 'flex-shrink': '0',
-                'height': spacing[4],
-                'width': spacing[4],
+                'height': spacing(4),
+                'width': spacing(4),
                 'color': theme.colors.blue['600'],
                 'background-color': '#fff',
                 'border-color': theme.colors.gray['500'],
