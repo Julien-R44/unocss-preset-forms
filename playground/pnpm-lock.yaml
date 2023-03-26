@@ -2,10 +2,12 @@ lockfileVersion: 5.4
 
 specifiers:
   '@unocss/preset-mini': ^0.50.6
+  '@unocss/reset': ^0.50.6
   vite: ^4.2.1
 
 devDependencies:
   '@unocss/preset-mini': 0.50.6
+  '@unocss/reset': 0.50.6
   vite: 4.2.1
 
 packages:
@@ -216,6 +218,10 @@ packages:
     resolution: {integrity: sha512-Ejgib688uvzCVgT/DHAOyXxKcM8vX55mxh8m3GAEx1H1pxg0IBfJO4QCKa3uAnasxj27XescBbvqv04dWi+jEQ==}
     dependencies:
       '@unocss/core': 0.50.6
+    dev: true
+
+  /@unocss/reset/0.50.6:
+    resolution: {integrity: sha512-e1fuSEgp1p7FgpsIZKNejOKgq4gyZcDGDvi+6544x458hInM6MfiMQNP95UBJEG4JZXq6qCZ8t7tRVWS2m5IXg==}
     dev: true
 
   /esbuild/0.17.14:
