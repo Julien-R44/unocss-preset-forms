@@ -1,0 +1,16 @@
+{
+  "name": "playground",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Julien Ripouteau <julien@ripouteau.com>",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "@unocss/preset-mini": "^0.50.6",
+    "vite": "^4.2.1"
+  }
+}
