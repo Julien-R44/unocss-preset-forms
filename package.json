@@ -61,9 +61,7 @@
   "peerDependencies": {
     "unocss": ">= 0.31.13 < 1"
   },
-  "dependencies": {
-    "mini-svg-data-uri": "^1.4.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@antfu/ni": "^0.20.0",
     "@japa/assert": "^1.4.1",
@@ -74,6 +72,7 @@
     "@unocss/preset-mini": "^0.50.6",
     "bumpp": "^9.0.0",
     "eslint": "^8.36.0",
+    "mini-svg-data-uri": "^1.4.4",
     "pnpm": "^7.30.3",
     "prettier": "^2.8.7",
     "rimraf": "^4.4.1",

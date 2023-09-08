@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      mini-svg-data-uri:
-        specifier: ^1.4.4
-        version: 1.4.4
     devDependencies:
       '@antfu/ni':
         specifier: ^0.20.0
@@ -39,6 +35,9 @@ importers:
       eslint:
         specifier: ^8.36.0
         version: 8.36.0
+      mini-svg-data-uri:
+        specifier: ^1.4.4
+        version: 1.4.4
       pnpm:
         specifier: ^7.30.3
         version: 7.30.3
@@ -3963,7 +3962,7 @@ packages:
   /mini-svg-data-uri@1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
-    dev: false
+    dev: true
 
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
