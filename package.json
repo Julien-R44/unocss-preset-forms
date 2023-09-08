@@ -1,7 +1,7 @@
 {
   "name": "@julr/unocss-preset-forms",
   "version": "0.0.5",
-  "packageManager": "pnpm@7.9.5",
+  "packageManager": "pnpm@8.7.4",
   "description": "📋 Port of @tailwindcss/forms for UnoCSS.",
   "author": "Julien Ripouteau <julien@ripouteau.com>",
   "license": "MIT",
