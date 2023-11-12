@@ -17,6 +17,7 @@ export function presetForms(): Preset {
 
           const inputsClasses = [
             "[type='text']",
+            'input:where(:not([type]))',
             "[type='email']",
             "[type='url']",
             "[type='password']",
@@ -93,6 +94,28 @@ export function presetForms(): Preset {
               class: ['.form-input::-webkit-date-and-time-value'],
               styles: {
                 'min-height': '1.5em',
+              },
+            },
+            {
+              // In Safari on iOS date and time inputs are centered instead of left-aligned and can't be
+              // changed with `text-align` utilities on the input by default. Resetting this to `inherit`
+              // makes them left-aligned by default and makes it possible to override the alignment with
+              // utility classes without using an arbitrary variant to target the pseudo-elements.
+              base: ['::-webkit-date-and-time-value'],
+              class: ['.form-input::-webkit-date-and-time-value'],
+              styles: {
+                'text-align': 'inherit',
+              },
+            },
+            {
+              // In Safari on macOS date time inputs that are set to `display: block` have unexpected
+              // extra bottom spacing. This can be corrected by setting the `::-webkit-datetime-edit`
+              // pseudo-element to `display: inline-flex`, instead of the browser default of
+              // `display: inline-block`.
+              base: ['::-webkit-datetime-edit'],
+              class: ['.form-input::-webkit-datetime-edit'],
+              styles: {
+                display: 'inline-flex',
               },
             },
             {
@@ -220,6 +243,10 @@ export function presetForms(): Preset {
                 'background-image': `url("${svgToDataUri(
                   `<svg viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z"/></svg>`
                 )}")`,
+
+                '@media (forced-colors: active) ': {
+                  appearance: 'auto',
+                },
               },
             },
             {
@@ -229,6 +256,10 @@ export function presetForms(): Preset {
                 'background-image': `url("${svgToDataUri(
                   `<svg viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="3"/></svg>`
                 )}")`,
+
+                '@media (forced-colors: active) ': {
+                  appearance: 'auto',
+                },
               },
             },
             {
@@ -261,6 +292,10 @@ export function presetForms(): Preset {
                 'background-size': `100% 100%`,
                 'background-position': `center`,
                 'background-repeat': `no-repeat`,
+
+                '@media (forced-colors: active) ': {
+                  appearance: 'auto',
+                },
               },
             },
             {
