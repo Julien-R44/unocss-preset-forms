@@ -5,9 +5,9 @@
 
   "compilerOptions": {
     "target": "es2020",
-    "module": "esnext",
+    "module": "Node16",
     "lib": ["esnext"],
-    "moduleResolution": "node",
+    "moduleResolution": "Node16",
     "esModuleInterop": true,
     "strict": true,
     "strictNullChecks": true,
