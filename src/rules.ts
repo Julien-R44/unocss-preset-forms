@@ -1,8 +1,9 @@
 import { handler as h } from '@unocss/preset-mini/utils'
 import { svgCheckboxChecked, svgCheckboxIndeterminate, svgRadioChecked, svgSelect } from './svg.js'
+import type { FormsRule } from './types.js'
 
-export function buildRules() {
-  const spacing = (s: number) => h.fraction.rem(`${s}` || '1')
+export function buildRules(): FormsRule[] {
+  const spacing = (s: number): string => h.fraction.rem(`${s}` || '1')!
   const borderWidth = { DEFAULT: '1px' }
 
   const inputsClasses = [

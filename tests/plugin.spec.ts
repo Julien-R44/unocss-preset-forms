@@ -40,4 +40,14 @@ test.group('Plugin', () => {
 
     assert.snapshot(await formatCss(css)).match()
   })
+
+  test('handle when class belongs to multiple rules', async ({ assert }) => {
+    const uno = generateUno({ strategy: 'class' })
+
+    const { css } = await uno.generate('form-select', {
+      preflights: false,
+    })
+
+    assert.snapshot(await formatCss(css)).match()
+  })
 })

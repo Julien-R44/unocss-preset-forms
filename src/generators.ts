@@ -1,35 +1,64 @@
+import type { FormsRule, StyleObject, StyleObjectFactory } from './types.js'
 import type { Rule } from 'unocss'
 import type { buildRules } from './rules.js'
 
 /**
+ * Resolve multiple styles into a single style object
+ */
+export function resolveMultipleStyles(styles: Array<StyleObjectFactory | StyleObject>, theme: any) {
+  const results = styles.map((style) => {
+    if (typeof style === 'function') return style(theme)
+    return style
+  })
+
+  return Object.assign({}, ...results)
+}
+
+/**
  * Convert our Preset rules to UnoCSS plugin rules
  */
-export function rulesToUnoRules(rules: ReturnType<typeof buildRules>) {
-  return rules.flatMap((config) => {
-    if (!config.class) return []
+export function rulesToUnoRules(rules: FormsRule[]) {
+  /**
+   * First, we need to group the rules by class name
+   */
+  const classStylesMap: Record<string, Array<StyleObjectFactory | StyleObject>> = {}
+  for (const rule of rules) {
+    for (const className of rule.class || []) {
+      classStylesMap[className] = classStylesMap[className] || []
+      classStylesMap[className].push(rule.styles)
+    }
+  }
 
-    return config.class.map((selector) => {
-      const selectorWithoutDot = selector.slice(1)
+  /**
+   * Now, we have a map of every single class name with its styles
+   */
+  const groups = Object.keys(classStylesMap).map((className) => ({
+    class: className,
+    styles: classStylesMap[className],
+  }))
 
-      /**
-       * Since we depend on the `theme` object, we need to create an Uno
-       * Dynamic Rule. Dynamic Rules need to be a tuple of a RegExp and a
-       * function that returns the styles.
-       */
-      const shouldBeDynamicRule = typeof config.styles === 'function'
-      if (shouldBeDynamicRule) {
-        return [
-          new RegExp(`^${selectorWithoutDot}$`),
-          // @ts-expect-error too lazy to fix
-          (_: any, { theme }: any) => config.styles(theme),
-        ]
-      }
+  return groups.map((rule) => {
+    const selectorWithoutDot = rule.class.slice(1)
 
-      /**
-       * Otherwise, we can just return the selector and the styles
-       */
-      return [selectorWithoutDot, config.styles]
-    })
+    /**
+     * Since we depend on the `theme` object, we are obliged to create an Uno
+     * Dynamic Rule.
+     *
+     * And Dynamic Rules need to be a tuple of a RegExp and a function that returns
+     * the styles.
+     */
+    const shouldBeDynamicRule = rule.styles.some((style) => typeof style === 'function')
+    if (shouldBeDynamicRule) {
+      return [
+        new RegExp(`^${selectorWithoutDot}$`),
+        (_: any, { theme }: any) => resolveMultipleStyles(rule.styles, theme),
+      ]
+    }
+
+    /**
+     * Otherwise, we can just return the selector and the styles
+     */
+    return [selectorWithoutDot, resolveMultipleStyles(rule.styles, {})]
   }) as Rule[]
 }
 
