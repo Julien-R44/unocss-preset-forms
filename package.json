@@ -57,6 +57,7 @@
     "release": "bumpp --commit --push --tag && pnpm publish",
     "start": "node --loader=ts-node/esm src/index.ts",
     "test": "NODE_NO_WARNINGS=1 node --loader ts-node/esm --enable-source-maps bin/test.ts",
+    "quick:test": "pnpm test --",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
