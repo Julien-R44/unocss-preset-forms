@@ -7,7 +7,7 @@ import type { Preflight, Preset, Rule } from 'unocss'
  * Forms preset for UnoCSS.
  * Port of `@tailwindcss/forms` for UnoCSS
  */
-export function presetForms(options: PresetFormOptions): Preset {
+export function presetForms(options?: PresetFormOptions): Preset {
   const strategy = options?.strategy === undefined ? ['base', 'class'] : [options.strategy]
 
   const rules = buildRules()
