@@ -56,15 +56,17 @@
     "prepublishOnly": "nr build",
     "release": "bumpp --commit --push --tag && pnpm publish",
     "start": "node --loader=ts-node/esm src/index.ts",
-    "test": "echo OK",
+    "test": "NODE_NO_WARNINGS=1 node --loader ts-node/esm --enable-source-maps bin/test.ts",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
     "unocss": ">= 0.31.13 < 1"
   },
-  "dependencies": {},
   "devDependencies": {
     "@antfu/ni": "^0.21.9",
+    "@japa/assert": "^2.0.1",
+    "@japa/runner": "^3.0.5",
+    "@japa/snapshot": "^2.0.3",
     "@julr/eslint-config": "^0.3.2",
     "@types/node": "^20.9.0",
     "@unocss/preset-mini": "^0.57.3",
