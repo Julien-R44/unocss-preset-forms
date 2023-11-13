@@ -1,7 +1,7 @@
 import { handler as h } from '@unocss/preset-mini/utils'
 import { svgCheckboxChecked, svgCheckboxIndeterminate, svgRadioChecked, svgSelect } from './svg.js'
 
-export function buildRules(theme: Record<string, any>) {
+export function buildRules() {
   const spacing = (s: number) => h.fraction.rem(`${s}` || '1')
   const borderWidth = { DEFAULT: '1px' }
 
@@ -28,7 +28,7 @@ export function buildRules(theme: Record<string, any>) {
     {
       base: inputsClasses,
       class: ['.form-input', '.form-textarea', '.form-select', '.form-multiselect'],
-      styles: {
+      styles: (theme: any) => ({
         'appearance': 'none',
         'background-color': '#fff',
         'border-color': theme.colors.gray['500'],
@@ -41,11 +41,11 @@ export function buildRules(theme: Record<string, any>) {
         'font-size': theme.fontSize.base[0],
         'line-height': `${theme.lineHeight.normal}rem`,
         '--un-shadow': '0 0 #0000',
-      },
+      }),
     },
     {
       base: inputsClasses.map((cssClass) => `${cssClass}:focus`),
-      styles: {
+      styles: (theme: any) => ({
         'outline': '2px solid transparent',
         'outline-offset': '2px',
         '--un-ring-inset': 'var(--un-empty,/*!*/ /*!*/)',
@@ -58,15 +58,15 @@ export function buildRules(theme: Record<string, any>) {
           'var(--un-ring-inset) 0 0 0 calc(1px + var(--un-ring-offset-width)) var(--un-ring-color)',
         'box-shadow': 'var(--un-ring-offset-shadow), var(--un-ring-shadow), var(--un-shadow)',
         'border-color': theme.colors.blue['600'],
-      },
+      }),
     },
     {
       base: ['input::placeholder', 'textarea::placeholder'],
       class: ['.form-input::placeholder', '.form-textarea::placeholder'],
-      styles: {
+      styles: (theme: any) => ({
         color: theme.colors.gray['500'],
         opacity: '1',
-      },
+      }),
     },
     {
       base: ['::-webkit-datetime-edit-fields-wrapper'],
@@ -141,14 +141,14 @@ export function buildRules(theme: Record<string, any>) {
     {
       base: ['select'],
       class: ['.form-select'],
-      styles: {
+      styles: (theme: any) => ({
         'background-image': `url("${svgSelect(theme.colors.gray['500'])}")`,
         'background-position': `right ${spacing(2)} center`,
         'background-repeat': `no-repeat`,
         'background-size': `1.5em 1.5em`,
         'padding-right': spacing(10),
         'print-color-adjust': `exact`,
-      },
+      }),
     },
     {
       base: ['[multiple]'],
@@ -165,7 +165,7 @@ export function buildRules(theme: Record<string, any>) {
     {
       base: [`[type='checkbox']`, `[type='radio']`],
       class: ['.form-checkbox', '.form-radio'],
-      styles: {
+      styles: (theme: any) => ({
         'appearance': 'none',
         'padding': '0',
         'print-color-adjust': 'exact',
@@ -181,14 +181,14 @@ export function buildRules(theme: Record<string, any>) {
         'border-color': theme.colors.gray['500'],
         'border-width': borderWidth.DEFAULT,
         '--un-shadow': '0 0 #0000',
-      },
+      }),
     },
     {
       base: [`[type='checkbox']`],
       class: ['.form-checkbox'],
-      styles: {
+      styles: (theme: any) => ({
         'border-radius': theme.borderRadius.none,
-      },
+      }),
     },
     {
       base: [`[type='radio']`],
@@ -200,7 +200,7 @@ export function buildRules(theme: Record<string, any>) {
     {
       base: [`[type='checkbox']:focus`, `[type='radio']:focus`],
       class: ['.form-checkbox:focus', '.form-radio:focus'],
-      styles: {
+      styles: (theme: any) => ({
         'outline': '2px solid transparent',
         'outline-offset': '2px',
         '--un-ring-inset': 'var(--un-empty,/*!*/ /*!*/)',
@@ -210,7 +210,7 @@ export function buildRules(theme: Record<string, any>) {
         '--un-ring-offset-shadow': `var(--un-ring-inset) 0 0 0 var(--un-ring-offset-width) var(--un-ring-offset-color)`,
         '--un-ring-shadow': `var(--un-ring-inset) 0 0 0 calc(2px + var(--un-ring-offset-width)) var(--un-ring-color)`,
         'box-shadow': `var(--un-ring-offset-shadow), var(--un-ring-shadow), var(--un-shadow)`,
-      },
+      }),
     },
     {
       base: [`[type='checkbox']:checked`, `[type='radio']:checked`],
@@ -228,9 +228,10 @@ export function buildRules(theme: Record<string, any>) {
       class: ['.form-checkbox:checked'],
       styles: {
         'background-image': `url("${svgCheckboxChecked}")`,
-        '@media (forced-colors: active) ': {
-          appearance: 'auto',
-        },
+        // TODO: need to support nested selectors in the generators
+        // '@media (forced-colors: active) ': {
+        //   appearance: 'auto',
+        // },
       },
     },
     {
@@ -238,9 +239,10 @@ export function buildRules(theme: Record<string, any>) {
       class: ['.form-radio:checked'],
       styles: {
         'background-image': `url("${svgRadioChecked}")`,
-        '@media (forced-colors: active) ': {
-          appearance: 'auto',
-        },
+        // TODO: need to support nested selectors in the generators
+        // '@media (forced-colors: active) ': {
+        //   appearance: 'auto',
+        // },
       },
     },
     {
@@ -272,9 +274,10 @@ export function buildRules(theme: Record<string, any>) {
         'background-position': `center`,
         'background-repeat': `no-repeat`,
 
-        '@media (forced-colors: active) ': {
-          appearance: 'auto',
-        },
+        // TODO: need to support nested selectors in the generators
+        // '@media (forced-colors: active) ': {
+        //   appearance: 'auto',
+        // },
       },
     },
     {

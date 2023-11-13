@@ -18,8 +18,25 @@ function formatCss(css: string) {
 test.group('Plugin', () => {
   test('Generate correct preflights with base strategy', async ({ assert }) => {
     const uno = generateUno()
+    const { css } = await uno.generate('', { preflights: true })
+
+    assert.snapshot(await formatCss(css)).match()
+  })
+
+  test('doesnt generate preflights if strategy is class', async ({ assert }) => {
+    const uno = generateUno({ strategy: 'class' })
 
     const { css } = await uno.generate('', { preflights: true })
+
+    assert.snapshot(await formatCss(css)).match()
+  })
+
+  test('generate correct classes with class strategy', async ({ assert }) => {
+    const uno = generateUno({ strategy: 'class' })
+
+    const { css } = await uno.generate('form-input form-textarea', {
+      preflights: false,
+    })
 
     assert.snapshot(await formatCss(css)).match()
   })
