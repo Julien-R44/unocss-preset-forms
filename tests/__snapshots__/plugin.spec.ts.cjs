@@ -105,22 +105,21 @@ exports[`Plugin > Generate correct preflights with base strategy 1`] = `"/* laye
   --un-backdrop-saturate: ;
   --un-backdrop-sepia: ;
 }
-[type=\\"text\\"],
+input:where([type=\\"text\\"]),
 input:where(:not([type])),
-[type=\\"email\\"],
-[type=\\"url\\"],
-[type=\\"password\\"],
-[type=\\"number\\"],
-[type=\\"date\\"],
-[type=\\"datetime-local\\"],
-[type=\\"month\\"],
-[type=\\"search\\"],
-[type=\\"tel\\"],
-[type=\\"time\\"],
-[type=\\"week\\"],
-[multiple],
-textarea,
-select {
+input:where([type=\\"email\\"]),
+input:where([type=\\"url\\"]),
+input:where([type=\\"password\\"]),
+input:where([type=\\"number\\"]),
+input:where([type=\\"date\\"]),
+input:where([type=\\"datetime-local\\"]),
+input:where([type=\\"month\\"]),
+input:where([type=\\"search\\"]),
+input:where([type=\\"tel\\"]),
+input:where([type=\\"time\\"]),
+input:where([type=\\"week\\"]),
+select,
+textarea {
   appearance: none;
   background-color: #fff;
   border-color: #6b7280;
@@ -134,22 +133,21 @@ select {
   line-height: 1.5rem;
   --un-shadow: 0 0 #0000;
 }
-[type=\\"text\\"]:focus,
+input:where([type=\\"text\\"]):focus,
 input:where(:not([type])):focus,
-[type=\\"email\\"]:focus,
-[type=\\"url\\"]:focus,
-[type=\\"password\\"]:focus,
-[type=\\"number\\"]:focus,
-[type=\\"date\\"]:focus,
-[type=\\"datetime-local\\"]:focus,
-[type=\\"month\\"]:focus,
-[type=\\"search\\"]:focus,
-[type=\\"tel\\"]:focus,
-[type=\\"time\\"]:focus,
-[type=\\"week\\"]:focus,
-[multiple]:focus,
-textarea:focus,
-select:focus {
+input:where([type=\\"email\\"]):focus,
+input:where([type=\\"url\\"]):focus,
+input:where([type=\\"password\\"]):focus,
+input:where([type=\\"number\\"]):focus,
+input:where([type=\\"date\\"]):focus,
+input:where([type=\\"datetime-local\\"]):focus,
+input:where([type=\\"month\\"]):focus,
+input:where([type=\\"search\\"]):focus,
+input:where([type=\\"tel\\"]):focus,
+input:where([type=\\"time\\"]):focus,
+input:where([type=\\"week\\"]):focus,
+select:focus,
+textarea:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
   --un-ring-inset: var(--un-empty, /*!*/ /*!*/);
@@ -201,7 +199,7 @@ select {
   padding-right: 2.5rem;
   print-color-adjust: exact;
 }
-[multiple] {
+input:where([multiple]) {
   background-image: initial;
   background-position: initial;
   background-repeat: unset;
@@ -209,8 +207,8 @@ select {
   padding-right: 0.75rem;
   print-color-adjust: unset;
 }
-[type=\\"checkbox\\"],
-[type=\\"radio\\"] {
+input:where([type=\\"checkbox\\"]),
+input:where([type=\\"radio\\"]) {
   appearance: none;
   padding: 0;
   print-color-adjust: exact;
@@ -227,14 +225,14 @@ select {
   border-width: 1px;
   --un-shadow: 0 0 #0000;
 }
-[type=\\"checkbox\\"] {
+input:where([type=\\"checkbox\\"]) {
   border-radius: 0;
 }
-[type=\\"radio\\"] {
+input:where([type=\\"radio\\"]) {
   border-radius: 100%;
 }
-[type=\\"checkbox\\"]:focus,
-[type=\\"radio\\"]:focus {
+input:where([type=\\"checkbox\\"]):focus,
+input:where([type=\\"radio\\"]):focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
   --un-ring-inset: var(--un-empty, /*!*/ /*!*/);
@@ -248,28 +246,28 @@ select {
   box-shadow: var(--un-ring-offset-shadow), var(--un-ring-shadow),
     var(--un-shadow);
 }
-[type=\\"checkbox\\"]:checked,
-[type=\\"radio\\"]:checked {
+input:where([type=\\"checkbox\\"]):checked,
+input:where([type=\\"radio\\"]):checked {
   border-color: transparent;
   background-color: currentColor;
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
-[type=\\"checkbox\\"]:checked {
+input:where([type=\\"checkbox\\"]):checked {
   background-image: url(\\"data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e\\");
 }
-[type=\\"radio\\"]:checked {
+input:where([type=\\"radio\\"]):checked {
   background-image: url(\\"data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e\\");
 }
-[type=\\"checkbox\\"]:checked:hover,
-[type=\\"checkbox\\"]:checked:focus,
-[type=\\"radio\\"]:checked:hover,
-[type=\\"radio\\"]:checked:focus {
+input:where([type=\\"checkbox\\"]):checked:hover,
+input:where([type=\\"checkbox\\"]):checked:focus,
+input:where([type=\\"radio\\"]):checked:hover,
+input:where([type=\\"radio\\"]):checked:focus {
   border-color: transparent;
   background-color: currentColor;
 }
-[type=\\"checkbox\\"]:indeterminate {
+input:where([type=\\"checkbox\\"]):indeterminate {
   background-image: url(\\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e\\");
   border-color: transparent;
   background-color: currentColor;
@@ -282,7 +280,7 @@ select {
   border-color: transparent;
   background-color: currentColor;
 }
-[type=\\"file\\"] {
+input:where([type=\\"file\\"]) {
   background: unset;
   border-color: inherit;
   border-width: 0;
@@ -291,7 +289,7 @@ select {
   font-size: unset;
   line-height: inherit;
 }
-[type=\\"file\\"]:focus {
+input:where([type=\\"file\\"]):focus {
   outline: 1px solid ButtonText, 1px auto -webkit-focus-ring-color;
 }
 "`
