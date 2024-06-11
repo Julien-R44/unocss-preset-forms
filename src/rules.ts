@@ -7,22 +7,21 @@ export function buildRules(): FormsRule[] {
   const borderWidth = { DEFAULT: '1px' }
 
   const inputsClasses = [
-    "[type='text']",
-    'input:where(:not([type]))',
-    "[type='email']",
-    "[type='url']",
-    "[type='password']",
-    "[type='number']",
-    "[type='date']",
-    "[type='datetime-local']",
-    "[type='month']",
-    "[type='search']",
-    "[type='tel']",
-    "[type='time']",
-    "[type='week']",
-    '[multiple]',
-    'textarea',
-    'select',
+    "input:where([type='text'])",
+    "input:where(:not([type]))",
+    "input:where([type='email'])",
+    "input:where([type='url'])",
+    "input:where([type='password'])",
+    "input:where([type='number'])",
+    "input:where([type='date'])",
+    "input:where([type='datetime-local'])",
+    "input:where([type='month'])",
+    "input:where([type='search'])",
+    "input:where([type='tel'])",
+    "input:where([type='time'])",
+    "input:where([type='week'])",
+    "select",
+    "textarea"
   ]
 
   return [
@@ -152,7 +151,7 @@ export function buildRules(): FormsRule[] {
       }),
     },
     {
-      base: ['[multiple]'],
+      base: ['select:where([multiple])'],
       class: null,
       styles: {
         'background-image': 'initial',
@@ -164,7 +163,7 @@ export function buildRules(): FormsRule[] {
       },
     },
     {
-      base: [`[type='checkbox']`, `[type='radio']`],
+      base: [`input:where([type='checkbox'])`, `input:where([type='radio'])`],
       class: ['.form-checkbox', '.form-radio'],
       styles: (theme: any) => ({
         'appearance': 'none',
@@ -185,21 +184,21 @@ export function buildRules(): FormsRule[] {
       }),
     },
     {
-      base: [`[type='checkbox']`],
+      base: [`input:where([type='checkbox'])`],
       class: ['.form-checkbox'],
       styles: (theme: any) => ({
         'border-radius': theme.borderRadius.none,
       }),
     },
     {
-      base: [`[type='radio']`],
+      base: [`input:where([type='radio'])`],
       class: ['.form-radio'],
       styles: {
         'border-radius': '100%',
       },
     },
     {
-      base: [`[type='checkbox']:focus`, `[type='radio']:focus`],
+      base: [`input:where([type='checkbox']):focus`, `input:where([type='radio']):focus`],
       class: ['.form-checkbox:focus', '.form-radio:focus'],
       styles: (theme: any) => ({
         'outline': '2px solid transparent',
@@ -214,7 +213,7 @@ export function buildRules(): FormsRule[] {
       }),
     },
     {
-      base: [`[type='checkbox']:checked`, `[type='radio']:checked`],
+      base: [`input:where([type='checkbox']):checked`, `input:where([type='radio']):checked`],
       class: ['.form-checkbox:checked', '.form-radio:checked'],
       styles: {
         'border-color': `transparent`,
@@ -225,7 +224,7 @@ export function buildRules(): FormsRule[] {
       },
     },
     {
-      base: [`[type='checkbox']:checked`],
+      base: [`input:where([type='checkbox']):checked`],
       class: ['.form-checkbox:checked'],
       styles: {
         'background-image': `url("${svgCheckboxChecked}")`,
@@ -236,7 +235,7 @@ export function buildRules(): FormsRule[] {
       },
     },
     {
-      base: [`[type='radio']:checked`],
+      base: [`input:where([type='radio']):checked`],
       class: ['.form-radio:checked'],
       styles: {
         'background-image': `url("${svgRadioChecked}")`,
@@ -248,10 +247,10 @@ export function buildRules(): FormsRule[] {
     },
     {
       base: [
-        `[type='checkbox']:checked:hover`,
-        `[type='checkbox']:checked:focus`,
-        `[type='radio']:checked:hover`,
-        `[type='radio']:checked:focus`,
+        `input:where([type='checkbox']):checked:hover`,
+        `input:where([type='checkbox']):checked:focus`,
+        `input:where([type='radio']):checked:hover`,
+        `input:where([type='radio']):checked:focus`,
       ],
       class: [
         '.form-checkbox:checked:hover',
@@ -265,7 +264,7 @@ export function buildRules(): FormsRule[] {
       },
     },
     {
-      base: [`[type='checkbox']:indeterminate`],
+      base: [`input:where([type='checkbox']):indeterminate`],
       class: ['.form-checkbox:indeterminate'],
       styles: {
         'background-image': `url("${svgCheckboxIndeterminate}")`,
@@ -290,7 +289,7 @@ export function buildRules(): FormsRule[] {
       },
     },
     {
-      base: [`[type='file']`],
+      base: [`input:where([type='file'])`],
       class: null,
       styles: {
         'background': 'unset',
@@ -303,7 +302,7 @@ export function buildRules(): FormsRule[] {
       },
     },
     {
-      base: [`[type='file']:focus`],
+      base: [`input:where([type='file']):focus`],
       class: null,
       styles: {
         outline: `1px solid ButtonText , 1px auto -webkit-focus-ring-color`,
