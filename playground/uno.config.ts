@@ -1,12 +1,7 @@
-import { defineConfig, presetMini } from 'unocss'
+import { defineConfig, presetUno } from 'unocss'
 
 import { presetForms } from '../src/index.js'
 
 export default defineConfig({
-  presets: [
-    presetMini(),
-    presetForms({
-      strategy: 'class',
-    }),
-  ],
+  presets: [presetUno(), presetForms()],
 })
