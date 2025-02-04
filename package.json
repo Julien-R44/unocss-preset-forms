@@ -38,7 +38,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "scripts": {
     "build": "rimraf dist && unbuild",
@@ -48,8 +48,8 @@
     "prepublishOnly": "nr build",
     "release": "bumpp --commit --push --tag && pnpm publish",
     "start": "tsx src/index.ts",
-    "test": "pnpm lint && pnpm typecheck && pnpm test",
-    "quick:test": "pnpm test --",
+    "test": "pnpm lint && pnpm typecheck && pnpm quick:test",
+    "quick:test": "pnpm tsx bin/test.ts",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
