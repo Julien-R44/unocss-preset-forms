@@ -292,7 +292,9 @@ select {
   line-height: inherit;
 }
 [type=\\"file\\"]:focus {
-  outline: 1px solid ButtonText, 1px auto -webkit-focus-ring-color;
+  outline:
+    1px solid ButtonText,
+    1px auto -webkit-focus-ring-color;
 }
 "`
 
