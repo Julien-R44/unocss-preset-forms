@@ -1,20 +1,7 @@
 {
-  "ts-node": {
-    "transpileOnly": true
-  },
-
+  "extends": "@julr/tooling-configs/tsconfigs/tsconfig.node",
   "compilerOptions": {
-    "target": "es2020",
-    "module": "Node16",
-    "lib": ["esnext"],
-    "moduleResolution": "Node16",
-    "esModuleInterop": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "rootDir": "./",
+    "outDir": "./build"
   }
 }

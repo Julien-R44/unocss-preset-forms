@@ -1,7 +1,7 @@
+import prettier from 'prettier'
 import { test } from '@japa/runner'
 import { createGenerator, presetUno } from 'unocss'
-// @ts-expect-error too lazy to fix
-import prettier from 'prettier'
+
 import { presetForms } from '../src/index.js'
 import type { PresetFormOptions } from '../src/types.js'
 

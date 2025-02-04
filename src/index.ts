@@ -1,7 +1,8 @@
-import { rulesToUnoPreflights, rulesToUnoRules } from './generators.js'
+import type { Preflight, Preset, Rule } from 'unocss'
+
 import { buildRules } from './rules.js'
 import type { PresetFormOptions } from './types.js'
-import type { Preflight, Preset, Rule } from 'unocss'
+import { rulesToUnoPreflights, rulesToUnoRules } from './generators.js'
 
 /**
  * Forms preset for UnoCSS.

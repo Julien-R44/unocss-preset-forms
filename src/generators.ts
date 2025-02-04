@@ -1,6 +1,7 @@
-import type { FormsRule, StyleObject, StyleObjectFactory } from './types.js'
 import type { Rule } from 'unocss'
+
 import type { buildRules } from './rules.js'
+import type { FormsRule, StyleObject, StyleObjectFactory } from './types.js'
 
 /**
  * Resolve multiple styles into a single style object

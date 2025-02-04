@@ -1,6 +1,7 @@
 import { handler as h } from '@unocss/preset-mini/utils'
-import { svgCheckboxChecked, svgCheckboxIndeterminate, svgRadioChecked, svgSelect } from './svg.js'
+
 import type { FormsRule } from './types.js'
+import { svgCheckboxChecked, svgCheckboxIndeterminate, svgRadioChecked, svgSelect } from './svg.js'
 
 export function buildRules(): FormsRule[] {
   const spacing = (s: number): string => h.fraction.rem(`${s}` || '1')!
