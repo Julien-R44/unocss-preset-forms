@@ -160,8 +160,8 @@ select:focus {
     var(--un-ring-offset-width) var(--un-ring-offset-color);
   --un-ring-shadow: var(--un-ring-inset) 0 0 0
     calc(1px + var(--un-ring-offset-width)) var(--un-ring-color);
-  box-shadow: var(--un-ring-offset-shadow), var(--un-ring-shadow),
-    var(--un-shadow);
+  box-shadow:
+    var(--un-ring-offset-shadow), var(--un-ring-shadow), var(--un-shadow);
   border-color: #2563eb;
 }
 input::placeholder,
@@ -245,8 +245,8 @@ select {
     var(--un-ring-offset-width) var(--un-ring-offset-color);
   --un-ring-shadow: var(--un-ring-inset) 0 0 0
     calc(2px + var(--un-ring-offset-width)) var(--un-ring-color);
-  box-shadow: var(--un-ring-offset-shadow), var(--un-ring-shadow),
-    var(--un-shadow);
+  box-shadow:
+    var(--un-ring-offset-shadow), var(--un-ring-shadow), var(--un-shadow);
 }
 [type=\\"checkbox\\"]:checked,
 [type=\\"radio\\"]:checked {

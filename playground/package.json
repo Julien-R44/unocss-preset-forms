@@ -11,9 +11,9 @@
     "dev": "vite"
   },
   "devDependencies": {
-    "@unocss/preset-mini": "^65.4.3",
-    "@unocss/reset": "^65.4.3",
-    "unocss": "^65.4.3",
-    "vite": "^6.0.11"
+    "@unocss/preset-mini": "^66.1.2",
+    "@unocss/reset": "^66.1.2",
+    "unocss": "^66.1.2",
+    "vite": "^6.3.5"
   }
 }
